@@ -46,6 +46,17 @@ export function enemyOf(g:Game){return ENEMIES.find(e=>e.id===g.battle?.enemy)??
 function same(a:Sigil[],b:Sigil[]){return a.length===b.length&&[...a].sort().join() === [...b].sort().join()}
 export function playKind(g:Game,indices:number[]):'quick'|'step'|null{if(g.phase!=='battle'||!g.battle||indices.length<1||new Set(indices).size!==indices.length||indices.some(i=>!Number.isInteger(i)||i<0||i>=g.hand.length))return null;const e=enemyOf(g)!;const cards=indices.map(i=>g.hand[i]);if(!g.battle.ambush&&e.quick.length&&same(cards,e.quick))return 'quick';if(same(cards,e.combo[g.battle.step])||(g.battle.step===0&&e.alternate&&same(cards,[e.alternate])))return 'step';return null}
 export function suggestedPlay(g:Game):number[]{for(let n=1;n<16;n++){const ids=[0,1,2,3].filter(i=>(n&(1<<i))!==0);if(playKind(g,ids)==='quick')return ids}for(let n=1;n<16;n++){const ids=[0,1,2,3].filter(i=>(n&(1<<i))!==0);if(playKind(g,ids))return ids}return []}
+export function selectionAfterTap(g:Game,current:number[],index:number):number[]{
+ if(!Number.isInteger(index)||index<0||index>=g.hand.length)return current;
+ if(current.includes(index))return current.filter(i=>i!==index);
+ const candidate=[...current,index];
+ if(playKind(g,candidate))return candidate;
+ for(let n=1;n<16;n++){
+  const playable=[0,1,2,3].filter(i=>(n&(1<<i))!==0);
+  if(playKind(g,playable)&&candidate.every(i=>playable.includes(i)))return candidate;
+ }
+ return [index];
+}
 export function scoreDetails(g:Game){const primary=(g.treasure==='gold'?5:g.treasure==='boots'?1:0)+(g.boss?3:0)+(g.ten?2:0);return {gold:g.treasure==='gold'?5:0,boots:g.treasure==='boots'?1:0,boss:g.boss?3:0,ten:g.ten?2:0,monsters:primary>0?g.captured.length:0,total:primary+(primary>0?g.captured.length:0)}}
 export function returnCost(g:Game){if(g.treasure==='boots')return Math.ceil(g.pos/3);let n=0;for(let p=g.pos-1;p>=0;p--)n+=g.footprints[p]?1:2;return n}
 function finishTurn(g:Game){if(g.pos===0&&g.returning){g.phase='won';scene(g,'おかえり、冒険者。',`無事に生還！ 持ち帰った褒章は${scoreDetails(g).total}個。今日の冒険を、ポケットに。`,g.treasure==='gold'?'gold':g.ten?'ten-steps':'corridor');return}if(g.light<=0){g.light=0;g.phase='lost';g.battle=null;scene(g,'灯りが、消えてしまった。','冒険はここまで。お宝は迷宮に置いてきた。次は帰り道の灯りも残しておこう。','slime')}}

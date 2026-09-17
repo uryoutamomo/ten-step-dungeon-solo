@@ -1,0 +1,1 @@
+{"name": "10歩ダンジョン ひとり旅", "short_name": "10歩ひとり旅", "lang": "ja", "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#f6f2e8", "theme_color": "#204b40", "icons": [{"src": "./icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}]}

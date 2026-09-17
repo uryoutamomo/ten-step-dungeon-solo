@@ -1,0 +1,230 @@
+[
+  {
+    "asset": "mimic.webp",
+    "source": "1枚目.pdf",
+    "row": 1,
+    "column": 1
+  },
+  {
+    "asset": "boots.webp",
+    "source": "1枚目.pdf",
+    "row": 1,
+    "column": 2
+  },
+  {
+    "asset": "gold.webp",
+    "source": "1枚目.pdf",
+    "row": 2,
+    "column": 1
+  },
+  {
+    "asset": "boss-door.webp",
+    "source": "1枚目.pdf",
+    "row": 2,
+    "column": 2
+  },
+  {
+    "asset": "dragon.webp",
+    "source": "1枚目.pdf",
+    "row": 3,
+    "column": 1
+  },
+  {
+    "asset": "demon-king.webp",
+    "source": "1枚目.pdf",
+    "row": 3,
+    "column": 2
+  },
+  {
+    "asset": "witch.webp",
+    "source": "1枚目.pdf",
+    "row": 4,
+    "column": 1
+  },
+  {
+    "asset": "tiny-boss.webp",
+    "source": "1枚目.pdf",
+    "row": 4,
+    "column": 2
+  },
+  {
+    "asset": "chest.webp",
+    "source": "２枚目.pdf",
+    "row": 1,
+    "column": 1
+  },
+  {
+    "asset": "legendary-sword.webp",
+    "source": "２枚目.pdf",
+    "row": 1,
+    "column": 2
+  },
+  {
+    "asset": "monster-door.webp",
+    "source": "２枚目.pdf",
+    "row": 2,
+    "column": 1
+  },
+  {
+    "asset": "slime.webp",
+    "source": "２枚目.pdf",
+    "row": 2,
+    "column": 2
+  },
+  {
+    "asset": "ambush.webp",
+    "source": "２枚目.pdf",
+    "row": 3,
+    "column": 1
+  },
+  {
+    "asset": "sword.webp",
+    "source": "３枚目.pdf",
+    "row": 1,
+    "column": 1
+  },
+  {
+    "asset": "magic.webp",
+    "source": "３枚目.pdf",
+    "row": 1,
+    "column": 2
+  },
+  {
+    "asset": "shield.webp",
+    "source": "３枚目.pdf",
+    "row": 2,
+    "column": 2
+  },
+  {
+    "asset": "turn-right.webp",
+    "source": "３枚目.pdf",
+    "row": 3,
+    "column": 2
+  },
+  {
+    "asset": "turn-left.webp",
+    "source": "３枚目.pdf",
+    "row": 4,
+    "column": 1
+  },
+  {
+    "asset": "corridor.webp",
+    "source": "３枚目.pdf",
+    "row": 4,
+    "column": 2
+  },
+  {
+    "asset": "strange-head.webp",
+    "source": "４枚目.pdf",
+    "row": 3,
+    "column": 1
+  },
+  {
+    "asset": "mandrake.webp",
+    "source": "４枚目.pdf",
+    "row": 3,
+    "column": 2
+  },
+  {
+    "asset": "thief.webp",
+    "source": "８枚目.pdf",
+    "row": 2,
+    "column": 1
+  },
+  {
+    "asset": "robot.webp",
+    "source": "８枚目.pdf",
+    "row": 3,
+    "column": 2
+  },
+  {
+    "asset": "brain.webp",
+    "source": "８枚目.pdf",
+    "row": 4,
+    "column": 1
+  },
+  {
+    "asset": "alien.webp",
+    "source": "８枚目.pdf",
+    "row": 4,
+    "column": 2
+  },
+  {
+    "asset": "mantis.webp",
+    "source": "９枚目.pdf",
+    "row": 1,
+    "column": 1
+  },
+  {
+    "asset": "fire.webp",
+    "source": "９枚目.pdf",
+    "row": 1,
+    "column": 2
+  },
+  {
+    "asset": "grey.webp",
+    "source": "９枚目.pdf",
+    "row": 2,
+    "column": 1
+  },
+  {
+    "asset": "tail.webp",
+    "source": "９枚目.pdf",
+    "row": 2,
+    "column": 2
+  },
+  {
+    "asset": "starfish.webp",
+    "source": "９枚目.pdf",
+    "row": 3,
+    "column": 1
+  },
+  {
+    "asset": "face-demon.webp",
+    "source": "９枚目.pdf",
+    "row": 3,
+    "column": 2
+  },
+  {
+    "asset": "knight.webp",
+    "source": "９枚目.pdf",
+    "row": 4,
+    "column": 1
+  },
+  {
+    "asset": "spider.webp",
+    "source": "９枚目.pdf",
+    "row": 4,
+    "column": 2
+  },
+  {
+    "asset": "monk.webp",
+    "source": "10枚目.pdf",
+    "row": 1,
+    "column": 1
+  },
+  {
+    "asset": "berserker.webp",
+    "source": "10枚目.pdf",
+    "row": 1,
+    "column": 2
+  },
+  {
+    "asset": "baby-dragon.webp",
+    "source": "10枚目.pdf",
+    "row": 2,
+    "column": 1
+  },
+  {
+    "asset": "muscle.webp",
+    "source": "10枚目.pdf",
+    "row": 2,
+    "column": 2
+  },
+  {
+    "asset": "ten-steps.webp",
+    "source": "10枚目.pdf",
+    "row": 3,
+    "column": 1
+  }
+]

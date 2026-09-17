@@ -1,0 +1,15 @@
+import {build,transform} from 'esbuild';
+import {readFile,mkdir,writeFile,cp} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const out=path.join(root,'docs');await mkdir(out,{recursive:true});
+const result=await build({stdin:{contents:'import React from "react";import{createRoot}from"react-dom/client";import Home from"./app/page";createRoot(document.getElementById("root")).render(React.createElement(Home));',resolveDir:root,loader:'tsx'},bundle:true,write:false,minify:true,format:'iife',platform:'browser',target:['safari15.4','chrome100','firefox100'],define:{'process.env.NODE_ENV':'"production"'},jsx:'automatic'});
+const js=result.outputFiles[0].text.replace(/<\/script/gi,'<\\/script');
+const css=(await transform((await readFile(path.join(root,'app/globals.css'),'utf8')).replace("@import 'tailwindcss';",''),{loader:'css',minify:true})).code;
+const url='https://uryoutamomo.github.io/ten-step-dungeon-solo/';
+const title='10歩ダンジョン ひとり旅',description='剣・盾・魔法のカードを組み合わせて、10歩先の宝物へ。帰るまでが冒険の、スマホで遊べる一人用カードゲーム。';
+const html=`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#204b40"><meta name="color-scheme" content="light"><title>${title}</title><meta name="description" content="${description}"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:url" content="${url}"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:image" content="${url}og.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${url}og.png"><link rel="icon" href="./favicon.png"><link rel="apple-touch-icon" href="./icon.png"><link rel="manifest" href="./manifest.webmanifest"><style>${css}</style></head><body><div id="root"></div><noscript>このゲームを遊ぶには、ブラウザのJavaScriptを有効にしてください。</noscript><script>${js}</script></body></html>`;
+await writeFile(path.join(out,'index.html'),html);await writeFile(path.join(out,'.nojekyll'),'');
+for(const item of ['cards','og.png','icon.png','favicon.png','manifest.webmanifest'])await cp(path.join(root,'public',item),path.join(out,item),{recursive:true});
+console.log(`Pages export: ${Math.round(Buffer.byteLength(html)/1024)} KB HTML + 38 card faces`);
